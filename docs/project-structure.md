@@ -25,12 +25,12 @@ The system is primarily one major component: the Next.js Application. However, f
 
 ```mermaid
 graph TD
-    subgraph UserAgent [User Agent (Browser)]
+    subgraph "User Agent (Browser)"
         ClientApp["Frontend Application (React, Next.js Pages, Shadcn/ui-inspired Components)"]
     end
 
-    subgraph ServerSide [Server (User's Hosting with Node.js)]
-        subgraph NextJsApp [Next.js Application]
+    subgraph "Server (User's Hosting with Node.js)"
+        subgraph "Next.js Application"
             BFF_API["BFF API Layer (Next.js API Route Handlers)"]
             StaticContent["Static Content (SSG Pages, Assets)"]
             SSR_ISR_Engine["SSR/ISR Engine"]
@@ -56,6 +56,7 @@ graph TD
     style SSR_ISR_Engine fill:#lightcoral,stroke:#333,stroke-width:2px
     style LocalData fill:#wheat,stroke:#333,stroke-width:2px
     style EmailServiceProviderGraph fill:#fcf,stroke:#333,stroke-width:2px
+
 ```
 
 **Architectural / Design Patterns Adopted**
