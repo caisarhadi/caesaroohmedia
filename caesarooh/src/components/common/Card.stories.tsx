@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import Image from 'next/image';
 import Card from './Card';
 import Button from './Button';
 
@@ -41,7 +42,7 @@ export const WithHeader: Story = {
     header: <h3 className="text-lg font-semibold">Card Header</h3>,
     children: (
       <p className="text-gray-600 dark:text-gray-300">
-        This card has a header section that's separated from the content with a border.
+        This card has a header section that&apos;s separated from the content with a border.
       </p>
     ),
   },
@@ -54,7 +55,7 @@ export const WithFooter: Story = {
   args: {
     children: (
       <p className="text-gray-600 dark:text-gray-300">
-        This card has a footer section that's separated from the content with a border.
+        This card has a footer section that&apos;s separated from the content with a border.
       </p>
     ),
     footer: (
@@ -79,11 +80,16 @@ export const Complete: Story = {
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           This is a complete card example with header, content, and footer sections.
         </p>
-        <img 
-          src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-          alt="Sample"
-          className="w-full h-48 object-cover rounded"
-        />
+        <div className="relative w-full h-48">
+          <Image 
+            loader={({ src }) => src}
+            src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+            alt="Sample"
+            layout="fill"
+            objectFit="cover"
+            className="rounded"
+          />
+        </div>
       </div>
     ),
     footer: (
@@ -102,11 +108,15 @@ export const NoPadding: Story = {
   args: {
     withPadding: false,
     children: (
-      <img 
-        src="https://images.unsplash.com/photo-1504198266287-1659872e6590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-        alt="Sample"
-        className="w-full h-64 object-cover"
-      />
+      <div className="relative w-full h-64">
+        <Image 
+          loader={({ src }) => src}
+          src="https://images.unsplash.com/photo-1504198266287-1659872e6590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+          alt="Sample"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
     ),
   },
 }; 

@@ -9,7 +9,9 @@ interface UIState {
   isDrawerOpen: boolean;
   activeModal: string | null;
   setTheme: (theme: Theme) => void;
-  toggleDrawer: (isOpen?: boolean) => void;
+  openDrawer: () => void;
+  closeDrawer: () => void;
+  toggleDrawer: () => void;
   setHeaderFixed: (isFixed: boolean) => void;
   openModal: (modalId: string) => void;
   closeModal: () => void;
@@ -25,8 +27,9 @@ const useUIStore = create<UIState>()(
       
       setTheme: (theme) => set({ theme }),
       
-      toggleDrawer: (isOpen) => 
-        set((state) => ({ isDrawerOpen: isOpen !== undefined ? isOpen : !state.isDrawerOpen })),
+      openDrawer: () => set({ isDrawerOpen: true }),
+      closeDrawer: () => set({ isDrawerOpen: false }),
+      toggleDrawer: () => set((state) => ({ isDrawerOpen: !state.isDrawerOpen })),
       
       setHeaderFixed: (isFixed) => set({ isHeaderFixed: isFixed }),
       

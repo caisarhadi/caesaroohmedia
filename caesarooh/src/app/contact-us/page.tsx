@@ -11,7 +11,7 @@ export default function ContactUsPage() {
               Get in Touch
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-              Have questions about our OOH advertising solutions? We're here to help.
+              Have questions about our OOH advertising solutions? We&apos;re here to help.
               Fill out the form or reach out to us directly.
             </p>
             <div className="mt-6 space-y-4">

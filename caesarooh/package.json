@@ -19,6 +19,7 @@
     "test-storybook:all": "node .storybook/scripts/test-storybook-ci.js"
   },
   "dependencies": {
+    "gsap": "^3.13.0",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -32,6 +33,7 @@
     "@storybook/test": "^8.6.14",
     "@storybook/test-runner": "^0.22.0",
     "@tailwindcss/postcss": "^4",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import useUIStore from '@/store/uiStore';
+import useUIStore from '../store/uiStore';
 
-type Theme = 'light' | 'dark' | 'system';
+// type Theme = 'light' | 'dark' | 'system';
 type ActiveTheme = 'light' | 'dark';
 
 const useTheme = () => {

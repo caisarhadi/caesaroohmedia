@@ -178,7 +178,6 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
                 checked={isChecked}
                 onChange={handleChange}
                 disabled={isOptionDisabled}
-                aria-invalid={error ? 'true' : 'false'}
                 aria-describedby={error ? `${groupId}-error` : hint ? `${groupId}-hint` : undefined}
                 className={baseRadioStyles}
               />

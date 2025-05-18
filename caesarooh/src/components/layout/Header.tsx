@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ThemeToggle from '@/components/common/ThemeToggle';
-import useUIStore from '@/store/uiStore';
+import ThemeToggle from '../common/ThemeToggle';
+import useUIStore from '../../store/uiStore';
 
 const Header = () => {
   const pathname = usePathname();
-  const { isHeaderFixed, setHeaderFixed } = useUIStore();
+  const { isHeaderFixed, setHeaderFixed, toggleDrawer, isDrawerOpen } = useUIStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Handle scroll to make header fixed
@@ -43,8 +43,10 @@ const Header = () => {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+  const mainDrawerToggle = () => {
+    console.log('🔄 Header: Toggle drawer clicked, current state:', isDrawerOpen);
+    toggleDrawer();
+    console.log('🔄 Header: After toggleDrawer call, state is now:', useUIStore.getState().isDrawerOpen);
   };
 
   // Navigation items array to avoid repetition
@@ -93,17 +95,17 @@ const Header = () => {
         <div className="flex items-center">
           <ThemeToggle />
           
-          {/* Mobile menu button */}
+          {/* Mobile menu button - UPDATED to control the main GSAP drawer */}
           <button
-            onClick={toggleMobileMenu}
+            onClick={mainDrawerToggle}
             className="ml-4 lg:hidden p-2 rounded-md text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label="Toggle menu"
+            aria-expanded={isDrawerOpen}
+            aria-controls="drawer-navigation"
+            aria-label="Toggle navigation menu"
           >
             <span className="sr-only">Open main menu</span>
             <svg
-              className={`h-6 w-6 ${mobileMenuOpen ? 'hidden' : 'block'}`}
+              className={`h-6 w-6 ${isDrawerOpen ? 'hidden' : 'block'}`}
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -118,7 +120,7 @@ const Header = () => {
               />
             </svg>
             <svg
-              className={`h-6 w-6 ${mobileMenuOpen ? 'block' : 'hidden'}`}
+              className={`h-6 w-6 ${isDrawerOpen ? 'block' : 'hidden'}`}
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -136,7 +138,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - This is the OLD dropdown menu. May be removed or reworked later. */}
       <div
         id="mobile-menu"
         className={`lg:hidden absolute left-0 right-0 bg-white dark:bg-gray-900 shadow-md dark:shadow-gray-800 transition-theme ${
@@ -162,4 +164,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

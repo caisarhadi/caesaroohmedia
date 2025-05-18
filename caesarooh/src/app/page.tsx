@@ -8,7 +8,7 @@ export default function HomePage() {
           Welcome to CAESAR OOH MEDIA
         </h1>
         <p className="text-xl md:text-2xl text-gray-900 dark:text-gray-300 max-w-3xl mb-8 font-semibold">
-          Indonesia's leading out-of-home advertising media provider, offering innovative and effective outdoor advertising solutions.
+          Indonesia&apos;s leading out-of-home advertising media provider, offering innovative and effective outdoor advertising solutions.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Link

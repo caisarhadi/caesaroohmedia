@@ -7,7 +7,7 @@ export default function AboutUsPage() {
         </h1>
         <div className="prose dark:prose-invert max-w-none">
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            CAESAR OOH MEDIA is Indonesia's leading out-of-home advertising media provider, 
+            CAESAR OOH MEDIA is Indonesia&apos;s leading out-of-home advertising media provider, 
             dedicated to delivering innovative and effective outdoor advertising solutions.
           </p>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">

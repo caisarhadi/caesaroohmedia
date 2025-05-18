@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ThemeProvider from "@/contexts/ThemeProvider";
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import ThemeProvider from "../contexts/ThemeProvider";
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import DrawerNavigation from '../components/layout/DrawerNavigation';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <DrawerNavigation />
           </div>
         </ThemeProvider>
       </body>

@@ -15,7 +15,7 @@ const Footer = () => {
               CAESAR OOH MEDIA
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Indonesia's leading out-of-home advertising media provider offering innovative OOH inventory solutions.
+              Indonesia&apos;s leading out-of-home advertising media provider offering innovative OOH inventory solutions.
             </p>
             <div className="flex space-x-4">
               {/* Social media icons would go here */}
