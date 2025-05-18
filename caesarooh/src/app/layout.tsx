@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
+import ThemeProvider from "@/contexts/ThemeProvider";
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,31 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} antialiased`}
-      >
-        {/* Script to handle dark mode preference */}
-        <Script id="theme-script" strategy="beforeInteractive">
-          {`
-            (function() {
-              function getThemePreference() {
-                if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-                  return localStorage.getItem('theme');
-                }
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-              }
-              
-              const theme = getThemePreference();
-              
-              if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-              } else {
-                document.documentElement.classList.remove('dark');
-              }
-            })();
-          `}
-        </Script>
-        {children}
+      <body className={`${inter.variable} antialiased`}>
+        <ThemeProvider>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,15 +2,15 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --primary: #00aaff;
+  --foreground: #000000;
+  --primary: #0088cc;
   --secondary: #8065ff;
-  --neutral: #666666;
+  --neutral: #333333;
 }
 
 .dark {
   --background: #0a0a0a;
-  --foreground: #ededed;
+  --foreground: #ffffff;
 }
 
 @layer theme {
@@ -25,6 +25,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
 
 .container {

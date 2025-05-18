@@ -1,0 +1,90 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction/Getting Started" />
+
+# Caesar OOH Media Component Library
+
+Welcome to the Caesar OOH Media component library. This library contains all the foundational UI components used in our application.
+
+## Component Philosophy
+
+Our components follow the Shadcn/ui-inspired approach:
+
+- Custom, composable, and accessible components built from scratch
+- Styled with Tailwind CSS
+- Developed and documented in Storybook
+- Support for both light and dark themes
+- Responsive design principles
+- Accessibility built-in
+
+## Component Categories
+
+The component library is organized into the following categories:
+
+### Common Components
+
+Basic UI elements that are used throughout the application:
+
+- **Button**: Various styles for actions including primary, secondary, and outline variants
+- **Card**: Flexible container for content with optional header and footer sections
+- **Icon**: Standardized icon system using SVG icons
+- **Form inputs**: Text inputs, selects, checkboxes, and radio buttons with support for validation
+
+### Layout Components
+
+Components that help structure the page layout:
+
+- Container
+- Grid
+- Section
+- Page layout components
+
+### Theme Support
+
+All components support both light and dark themes. The theme can be toggled using the theme toggle in the toolbar.
+
+## Usage Guidelines
+
+### Installation
+
+These components are part of the Caesar OOH Media application and are not distributed as a separate package.
+
+### Accessibility
+
+All components are built with accessibility in mind:
+
+- Proper ARIA attributes
+- Keyboard navigation
+- Focus management
+- Screen reader support
+
+### Custom Styling
+
+Components accept class name props that allow you to customize their appearance.
+
+## Development
+
+### Adding New Components
+
+When adding new components:
+
+1. Create a new file in the appropriate directory within `src/components/`
+2. Create a corresponding story file for Storybook
+3. Export the component in an index file
+4. Document the component's props and usage
+
+### Modifying Existing Components
+
+When modifying components:
+
+1. Ensure backward compatibility
+2. Update the component's story file
+3. Test the component in both light and dark themes
+4. Verify accessibility
+
+## Resources
+
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Storybook Documentation](https://storybook.js.org/docs/react/get-started/introduction)
+- [Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) 
