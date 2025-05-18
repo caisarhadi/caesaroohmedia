@@ -1,0 +1,25 @@
+**Component Library / Design System Approach**
+
+  - **Styling Foundation:** Tailwind CSS 4 will be the primary CSS framework, utilized for its utility-first approach to rapidly build custom designs. Its `dark:` variant will be essential for implementing the dark mode theme.
+  - **Animation Foundation:** GSAP (GreenSock Animation Platform) will be employed for all sophisticated UI interactions, complex animations (like vertical twin scrolling), and smooth transitions, as outlined in the PRD and to be detailed in high-fidelity mockups.
+  - **Component Approach:**
+      - A project-specific, modular component library will be developed using React. Components will be designed for reusability across the application.
+      - Components will be styled primarily using Tailwind CSS utility classes.
+      - **Storybook will be utilized** as a development environment for building UI components in isolation. It will also serve as a living documentation platform for the component library, showcasing different states, props, and usage examples.
+      - **Shadcn/ui Inspiration:** While not a direct dependency to be installed as a library, the architectural principles of Shadcn/ui will serve as a strong inspiration. This means focusing on creating composable, accessible components from scratch (or from unstyled primitives like those offered by Radix UI), which are then styled using Tailwind CSS. This approach provides maximum control and customization over the components, ensuring they perfectly fit the project's unique design and functional requirements, rather than being constrained by a pre-built component library's opinions.
+  - **Link to Deployed Storybook / Component Showcase:** (A URL will be established and added here once Storybook is developed, built, and deployed to a publicly accessible environment).
+  - **Foundational Components (Examples - to be refined, built with the above approach, and documented in Storybook):**
+      - **Button:** Variations (Primary, Secondary, Tertiary/Link-style, Icon-only button); States (default, hover, active, focused, disabled, loading); Dark/Light theme adaptations.
+      - **Card:** Reusable card component for Insight articles, Inventory items, Homepage summary sections; Dark/Light theme adaptations.
+      - **Input Fields:** Text input, Textarea, Select dropdowns, Search input; States (default, focus, error, disabled); Dark/Light theme adaptations; Built leveraging accessible primitives.
+      - **Navigation Drawer:** The main container for the drawer, navigation links, active state indication; Smooth GSAP animation for open/close transitions.
+      - **Modal/Dialog:** For confirmations, quick views, or displaying additional information; Dark/Light theme adaptations; Built leveraging accessible primitives.
+      - **Dark/Light Mode Toggle Switch:** Custom-styled switch with clear visual states for on/off/system.
+      - **Sticky Utility Buttons:** Components for "Back to Top" and "WhatsApp Chat" buttons.
+      - **Map Interaction Elements:** Custom map markers (for OOH sites, POIs), Information popups/panels displayed on map interactions, Filter controls specific to the map interface.
+      - **360 Image Viewer:** A wrapper or container component for integrating a third-party 360-degree image viewing library.
+      - **Breadcrumbs Component:** For displaying navigation paths.
+      - **Pagination Component:** For navigating through lists of inventory or insights.
+      - **Form Controls:** Standardized components for labels, error messages, and grouping form fields.
+      - **Sheet/Off-canvas Panel:** May be used for filter panels on mobile or as an alternative to the main drawer for specific contexts if needed.
+      - *(Further components will be identified and specified during the detailed design and development phases.)* 
