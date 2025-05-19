@@ -6,8 +6,7 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import DrawerNavigation from '../components/layout/DrawerNavigation';
 import { defaultMetadata } from '../lib/metadata';
-import JsonLd from '../components/seo/JsonLd';
-import { createOrganizationSchema, createWebsiteSchema } from '../components/seo/JsonLd';
+import StructuredData from '../components/seo/StructuredData';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,19 +32,16 @@ const organizationData = {
   ],
 };
 
+const websiteData = {
+  name: 'CAESAR OOH MEDIA',
+  url: process.env.NEXT_PUBLIC_BASE_URL || 'https://caesarooh.com',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const structuredData = [
-    createOrganizationSchema(organizationData),
-    createWebsiteSchema({
-      name: 'CAESAR OOH MEDIA',
-      url: process.env.NEXT_PUBLIC_BASE_URL || 'https://caesarooh.com',
-    }),
-  ];
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
@@ -59,7 +55,10 @@ export default function RootLayout({
             <DrawerNavigation />
           </div>
         </ThemeProvider>
-        <JsonLd data={structuredData} />
+        <StructuredData 
+          organizationData={organizationData}
+          websiteData={websiteData}
+        />
       </body>
     </html>
   );
