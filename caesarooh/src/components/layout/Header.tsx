@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from '../common/ThemeToggle';
 import useUIStore from '../../store/uiStore';
-import { getBackgroundClasses, getBorderClasses, getTextClasses, cx } from '@/styles/styleUtils';
+import { getBackgroundClasses, getTextClasses, cx } from '@/styles/styleUtils';
 
 const Header = () => {
   const pathname = usePathname();

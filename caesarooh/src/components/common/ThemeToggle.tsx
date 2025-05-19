@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useThemeContext } from '@/contexts/ThemeProvider';
-import { getBackgroundClasses, getTextClasses, cx } from '@/styles/styleUtils';
+import { cx } from '@/styles/styleUtils';
 import { themeColors } from '@/styles/theme';
 
 interface ThemeToggleProps {

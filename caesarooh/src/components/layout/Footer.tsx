@@ -10,7 +10,6 @@ const Footer = () => {
   const bgSecondary = getBackgroundClasses('secondary');
   const borderPrimary = getBorderClasses('primary');
   const textPrimary = getTextClasses('primary');
-  const textSecondary = getTextClasses('secondary');
   const textTertiary = getTextClasses('tertiary');
   
   return (
