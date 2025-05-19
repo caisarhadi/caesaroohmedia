@@ -20,9 +20,11 @@
   },
   "dependencies": {
     "@types/mapbox-gl": "^3.4.1",
+    "@types/nodemailer": "^6.4.17",
     "gsap": "^3.13.0",
     "mapbox-gl": "^3.12.0",
     "next": "15.3.2",
+    "nodemailer": "^7.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "zustand": "^5.0.4"
