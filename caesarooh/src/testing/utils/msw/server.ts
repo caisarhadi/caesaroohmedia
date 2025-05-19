@@ -1,4 +1,3 @@
-/// <reference path="./handlers.ts" />
 import { setupServer } from 'msw/node';
 import { type HttpHandler } from 'msw'; // http import removed as it's not used now
 

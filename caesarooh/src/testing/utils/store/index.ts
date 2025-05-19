@@ -2,7 +2,7 @@ import { create, StoreApi, UseBoundStore } from 'zustand';
 
 // This is a generic type for a Zustand store. Replace with your actual store type.
 interface GenericState {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**

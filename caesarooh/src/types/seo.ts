@@ -55,7 +55,7 @@ export interface TwitterCard {
 export interface JsonLdBase {
   '@context': string;
   '@type': string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**

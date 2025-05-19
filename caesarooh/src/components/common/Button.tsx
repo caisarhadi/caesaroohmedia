@@ -1,4 +1,5 @@
 import React from 'react';
+import { getThemeClasses } from '@/styles/styleUtils';
 
 /**
  * The different variants available for the Button component.
@@ -72,14 +73,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     // Base styles for all buttons
-    const baseStyles = 'inline-flex items-center justify-center font-medium rounded focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors';
+    const baseStyles = 'inline-flex items-center justify-center font-medium rounded focus:outline-none focus:ring-2 focus:ring-offset-2 dark:ring-offset-gray-900';
     
-    // Styles based on variant
-    const variantStyles = {
-      primary: 'bg-primary text-white hover:bg-primary-dark focus:ring-primary dark:bg-primary-light dark:hover:bg-primary dark:focus:ring-primary-light',
-      secondary: 'bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary dark:bg-secondary-light dark:hover:bg-secondary dark:focus:ring-secondary-light',
-      outline: 'border border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50 focus:ring-primary dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:ring-primary-light',
-    };
+    // Get variant styles from theme configuration
+    const variantStyles = getThemeClasses(variant);
     
     // Styles based on size
     const sizeStyles = {
@@ -94,7 +91,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     // Combine all styles
     const buttonStyles = `
       ${baseStyles}
-      ${variantStyles[variant]}
+      ${variantStyles}
       ${sizeStyles[size]}
       ${disabled || isLoading ? disabledStyles : ''}
       ${className}

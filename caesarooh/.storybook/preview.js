@@ -1,5 +1,5 @@
-import '../src/styles/globals.css';
-import { ThemeProvider } from '../src/contexts/ThemeContext';
+import '../src/styles/index.css';
+import ThemeProvider from '../src/contexts/ThemeProvider';
 
 /** @type { import('@storybook/react').Preview } */
 const preview = {

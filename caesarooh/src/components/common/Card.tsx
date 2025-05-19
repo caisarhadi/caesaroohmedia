@@ -1,4 +1,5 @@
 import React from 'react';
+import { getBackgroundClasses, getBorderClasses } from '@/styles/styleUtils';
 
 export interface CardProps {
   /**
@@ -56,20 +57,21 @@ const Card = ({
   headerClassName = '',
   footerClassName = '',
 }: CardProps) => {
+  // Get themed background and border classes
+  const backgroundClasses = getBackgroundClasses('primary');
+  const borderClasses = getBorderClasses('primary');
+  
   // Base card styles
-  const cardStyles = `bg-white border border-gray-200 rounded-lg shadow-sm 
-    dark:bg-gray-800 dark:border-gray-700 overflow-hidden ${className}`;
+  const cardStyles = `${backgroundClasses} ${borderClasses} rounded-lg shadow-sm overflow-hidden ${className}`;
   
   // Header styles
-  const headerStyles = `border-b border-gray-200 dark:border-gray-700 
-    px-4 py-3 ${headerClassName}`;
+  const headerStyles = `border-b ${getBorderClasses('primary')} px-4 py-3 ${headerClassName}`;
   
   // Content styles
   const contentStyles = `${withPadding ? 'p-4' : ''} ${contentClassName}`;
   
   // Footer styles
-  const footerStyles = `border-t border-gray-200 dark:border-gray-700 
-    px-4 py-3 ${footerClassName}`;
+  const footerStyles = `border-t ${getBorderClasses('primary')} px-4 py-3 ${footerClassName}`;
   
   return (
     <div className={cardStyles}>

@@ -1,20 +1,28 @@
 'use client';
 
 import Link from 'next/link';
+import { getBackgroundClasses, getBorderClasses, getTextClasses, cx } from '@/styles/styleUtils';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
+  // Get theme classes
+  const bgSecondary = getBackgroundClasses('secondary');
+  const borderPrimary = getBorderClasses('primary');
+  const textPrimary = getTextClasses('primary');
+  const textSecondary = getTextClasses('secondary');
+  const textTertiary = getTextClasses('tertiary');
+  
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 py-12 transition-theme">
+    <footer className={cx('py-12 transition-theme', bgSecondary)}>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Information */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className={cx('text-lg font-semibold mb-4', textPrimary)}>
               CAESAR OOH MEDIA
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <p className={cx('mb-4', textTertiary)}>
               Indonesia&apos;s leading out-of-home advertising media provider offering innovative OOH inventory solutions.
             </p>
             <div className="flex space-x-4">
@@ -68,32 +76,32 @@ const Footer = () => {
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className={cx('text-lg font-semibold mb-4', textPrimary)}>
               Quick Links
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about-us" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/about-us" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/solutions" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/solutions" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/inventory" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/inventory" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Inventory
                 </Link>
               </li>
               <li>
-                <Link href="/insight" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/insight" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Insight
                 </Link>
               </li>
               <li>
-                <Link href="/contact-us" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/contact-us" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Contact Us
                 </Link>
               </li>
@@ -102,32 +110,32 @@ const Footer = () => {
           
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className={cx('text-lg font-semibold mb-4', textPrimary)}>
               Our Services
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/solutions#billboards" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/solutions#billboards" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Billboards
                 </Link>
               </li>
               <li>
-                <Link href="/solutions#digital-displays" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/solutions#digital-displays" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Digital Displays
                 </Link>
               </li>
               <li>
-                <Link href="/solutions#street-furniture" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/solutions#street-furniture" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Street Furniture
                 </Link>
               </li>
               <li>
-                <Link href="/solutions#transit" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/solutions#transit" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Transit Media
                 </Link>
               </li>
               <li>
-                <Link href="/solutions#ambient" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-theme">
+                <Link href="/solutions#ambient" className={cx(textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                   Ambient Media
                 </Link>
               </li>
@@ -136,23 +144,23 @@ const Footer = () => {
           
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className={cx('text-lg font-semibold mb-4', textPrimary)}>
               Contact Us
             </h3>
             <address className="not-italic">
-              <p className="text-gray-600 dark:text-gray-400 mb-2">
+              <p className={cx('mb-2', textTertiary)}>
                 CAESAR OOH MEDIA Headquarters
               </p>
-              <p className="text-gray-600 dark:text-gray-400 mb-2">
+              <p className={cx('mb-2', textTertiary)}>
                 Jl. Example Street No. 123
               </p>
-              <p className="text-gray-600 dark:text-gray-400 mb-2">
+              <p className={cx('mb-2', textTertiary)}>
                 Jakarta, Indonesia 12345
               </p>
-              <p className="text-gray-600 dark:text-gray-400 mb-2">
+              <p className={cx('mb-2', textTertiary)}>
                 Phone: +62 123 4567 890
               </p>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
+              <p className={cx('mb-4', textTertiary)}>
                 Email: info@caesaroohmedia.com
               </p>
             </address>
@@ -160,19 +168,19 @@ const Footer = () => {
         </div>
         
         {/* Copyright & Legal */}
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div className={cx('mt-12 pt-8 border-t', borderPrimary)}>
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 md:mb-0">
+            <p className={cx('text-sm mb-4 md:mb-0', textTertiary)}>
               &copy; {currentYear} CAESAR OOH MEDIA. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <Link href="/privacy-policy" className="text-gray-600 dark:text-gray-400 text-sm hover:text-primary dark:hover:text-primary transition-theme">
+              <Link href="/privacy-policy" className={cx('text-sm', textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="text-gray-600 dark:text-gray-400 text-sm hover:text-primary dark:hover:text-primary transition-theme">
+              <Link href="/terms-of-service" className={cx('text-sm', textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                 Terms of Service
               </Link>
-              <Link href="/sitemap" className="text-gray-600 dark:text-gray-400 text-sm hover:text-primary dark:hover:text-primary transition-theme">
+              <Link href="/sitemap" className={cx('text-sm', textTertiary, 'hover:text-primary dark:hover:text-primary transition-theme')}>
                 Sitemap
               </Link>
             </div>

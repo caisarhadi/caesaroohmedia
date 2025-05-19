@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import '../styles/index.css'
 import ThemeProvider from "../contexts/ThemeProvider";
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
@@ -44,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-200`}>
         <ThemeProvider>
           <div className="min-h-screen flex flex-col">
             <Header />

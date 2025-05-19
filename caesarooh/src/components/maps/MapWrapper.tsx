@@ -128,7 +128,7 @@ const MapWrapper: React.FC<MapWrapperProps> = ({
     if (initialStyle && initialStyle !== map.current.getStyle().name) {
       map.current.setStyle(initialStyle)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // These dependencies are intentionally omitted to prevent unnecessary updates
   }, [initialCenter, initialZoom, initialStyle, mapInitialized])
 
   return (

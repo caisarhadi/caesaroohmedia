@@ -2,7 +2,7 @@
  * Base API client wrapper for handling HTTP requests
  */
 
-export type ApiResponse<T = any> = {
+export type ApiResponse<T = unknown> = {
   data: T;
   error?: string;
   success: boolean;
@@ -68,7 +68,7 @@ export class ApiClient {
     }
   }
 
-  async post<T>(endpoint: string, data?: any, options: RequestInit = {}): Promise<ApiResponse<T>> {
+  async post<T, D = unknown>(endpoint: string, data?: D, options: RequestInit = {}): Promise<ApiResponse<T>> {
     try {
       const response = await fetch(`${this.baseUrl}${endpoint}`, {
         ...options,

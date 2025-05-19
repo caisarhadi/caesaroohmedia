@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from '../common/ThemeToggle';
 import useUIStore from '../../store/uiStore';
+import { getBackgroundClasses, getBorderClasses, getTextClasses, cx } from '@/styles/styleUtils';
 
 const Header = () => {
   const pathname = usePathname();
@@ -59,18 +60,23 @@ const Header = () => {
     { href: '/contact-us', label: 'Contact Us' },
   ];
 
+  // Get theme classes
+  const bgPrimary = getBackgroundClasses('primary');
+  const textPrimary = getTextClasses('primary');
+  const textSecondary = getTextClasses('secondary');
+
   return (
     <header
       className={`w-full py-4 transition-theme z-10 ${
         isHeaderFixed
-          ? 'fixed top-0 bg-white dark:bg-gray-900 shadow-md dark:shadow-md dark:shadow-gray-800'
+          ? cx(bgPrimary, 'fixed top-0 shadow-md dark:shadow-md')
           : 'relative bg-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="inline-flex items-center">
-          <span className="text-xl font-bold text-gray-900 dark:text-white">
+          <span className={cx('text-xl font-bold', textPrimary)}>
             CAESAR OOH MEDIA
           </span>
         </Link>
@@ -81,10 +87,11 @@ const Header = () => {
             <Link
               key={item.href}
               href={item.href}
-              className={`
-                text-gray-900 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-theme font-semibold
-                ${pathname === item.href ? 'text-primary dark:text-primary' : ''}
-              `}
+              className={cx(
+                textSecondary,
+                'hover:text-primary dark:hover:text-primary transition-theme font-semibold',
+                pathname === item.href ? 'text-primary dark:text-primary' : ''
+              )}
             >
               {item.label}
             </Link>
@@ -98,7 +105,10 @@ const Header = () => {
           {/* Mobile menu button - UPDATED to control the main GSAP drawer */}
           <button
             onClick={mainDrawerToggle}
-            className="ml-4 lg:hidden p-2 rounded-md text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
+            className={cx(
+              'ml-4 lg:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary',
+              textPrimary
+            )}
             aria-expanded={isDrawerOpen}
             aria-controls="drawer-navigation"
             aria-label="Toggle navigation menu"
@@ -141,19 +151,23 @@ const Header = () => {
       {/* Mobile Menu - This is the OLD dropdown menu. May be removed or reworked later. */}
       <div
         id="mobile-menu"
-        className={`lg:hidden absolute left-0 right-0 bg-white dark:bg-gray-900 shadow-md dark:shadow-gray-800 transition-theme ${
+        className={cx(
+          'lg:hidden absolute left-0 right-0 shadow-md transition-theme',
+          bgPrimary,
           mobileMenuOpen ? 'block' : 'hidden'
-        }`}
+        )}
       >
         <div className="container mx-auto px-4 py-4 space-y-4">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`
-                block text-gray-900 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-theme font-semibold
-                ${pathname === item.href ? 'text-primary dark:text-primary' : ''}
-              `}
+              className={cx(
+                'block transition-theme font-semibold',
+                textSecondary,
+                'hover:text-primary dark:hover:text-primary',
+                pathname === item.href ? 'text-primary dark:text-primary' : ''
+              )}
             >
               {item.label}
             </Link>

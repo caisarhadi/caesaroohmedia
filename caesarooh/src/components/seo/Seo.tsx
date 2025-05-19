@@ -14,7 +14,7 @@
 
 import React from 'react';
 import Head from 'next/head';
-import { SeoProps, JsonLdBase } from '@/types/seo';
+import { SeoProps } from '@/types/seo';
 import JsonLd from './JsonLd';
 
 /**

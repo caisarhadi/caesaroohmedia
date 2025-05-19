@@ -40,16 +40,16 @@ export const mockEmailConfig = {
 };
 
 // Helper function to create mock Request object
-export const createMockRequest = (data: any) => {
+export const createMockRequest = <T>(data: T) => {
   return {
     json: async () => data,
   } as Request;
 };
 
 // Helper function to mock fetch responses
-export const mockFetchResponse = (data: any, ok = true) => {
+export const mockFetchResponse = <T>(data: T, ok = true) => {
   return {
     ok,
     json: async () => data,
   } as Response;
-}; 
+};  
