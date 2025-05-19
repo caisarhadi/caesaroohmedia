@@ -12,7 +12,7 @@ const config = {
     '@storybook/addon-interactions',
   ],
   framework: {
-    name: '@storybook/nextjs',
+    name: "@storybook/experimental-nextjs-vite",
     options: {},
   },
   docs: {
