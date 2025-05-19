@@ -5,6 +5,9 @@ import ThemeProvider from "../contexts/ThemeProvider";
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import DrawerNavigation from '../components/layout/DrawerNavigation';
+import { defaultMetadata } from '../lib/metadata';
+import JsonLd from '../components/seo/JsonLd';
+import { createOrganizationSchema, createWebsiteSchema } from '../components/seo/JsonLd';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,12 +19,18 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export const metadata: Metadata = {
-  title: "CAESAR OOH MEDIA | Out-of-Home Advertising Media Provider",
-  description: "CAESAR OOH MEDIA is Indonesia's leading out-of-home advertising media provider offering innovative OOH inventory solutions.",
-  keywords: "out-of-home advertising, OOH media, billboard advertising, outdoor advertising, Indonesia",
-  authors: [{ name: "CAESAR OOH MEDIA" }],
-  robots: "index, follow",
+export const metadata: Metadata = defaultMetadata;
+
+const organizationData = {
+  name: 'CAESAR OOH MEDIA',
+  url: process.env.NEXT_PUBLIC_BASE_URL || 'https://caesarooh.com',
+  logo: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://caesarooh.com'}/images/logo.png`,
+  sameAs: [
+    'https://twitter.com/caesarooh',
+    'https://facebook.com/caesarooh',
+    'https://linkedin.com/company/caesarooh',
+    'https://instagram.com/caesarooh',
+  ],
 };
 
 export default function RootLayout({
@@ -29,6 +38,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = [
+    createOrganizationSchema(organizationData),
+    createWebsiteSchema({
+      name: 'CAESAR OOH MEDIA',
+      url: process.env.NEXT_PUBLIC_BASE_URL || 'https://caesarooh.com',
+    }),
+  ];
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
@@ -42,6 +59,7 @@ export default function RootLayout({
             <DrawerNavigation />
           </div>
         </ThemeProvider>
+        <JsonLd data={structuredData} />
       </body>
     </html>
   );
