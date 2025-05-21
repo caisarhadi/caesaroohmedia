@@ -1,29 +1,158 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
-  --primary: #0088cc;
-  --secondary: #8065ff;
-  --neutral: #333333;
+  /* Base Palette Variables */
+  --white: #ffffff;
+  --black: #000000;
+
+  --primary-50: #e6f6ff;
+  --primary-100: #cceeff;
+  --primary-200: #99ddff;
+  --primary-300: #66ccff;
+  --primary-400: #33bbff;
+  --primary-500: #00aaff;
+  --primary-600: #0088cc;
+  --primary-700: #006699;
+  --primary-800: #004466;
+  --primary-900: #002233;
+
+  --secondary-50: #f2f0ff;
+  --secondary-100: #e6e0ff;
+  --secondary-200: #ccc1ff;
+  --secondary-300: #b3a2ff;
+  --secondary-400: #9984ff;
+  --secondary-500: #8065ff;
+  --secondary-600: #6651cc;
+  --secondary-700: #4d3c99;
+  --secondary-800: #332866;
+  --secondary-900: #1a1433;
+
+  --neutral-50: #f7f7f7;
+  --neutral-100: #e3e3e3;
+  --neutral-200: #c8c8c8;
+  --neutral-300: #a4a4a4;
+  --neutral-400: #818181;
+  --neutral-500: #666666;
+  --neutral-600: #515151;
+  --neutral-700: #434343;
+  --neutral-800: #383838;
+  --neutral-900: #1a1a1a;
+
+  /* Semantic Color Variables (Light Theme) */
+  --background-primary: var(--white);
+  --background-secondary: var(--neutral-50);
+  --background-tertiary: var(--neutral-100);
+
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-700);
+  --text-tertiary: var(--neutral-500);
+
+  --border-primary: var(--neutral-200);
+  --border-secondary: var(--neutral-300);
+
+  --button-primary-base-bg: var(--primary-500);
+  --button-primary-base-text: var(--white);
+  --button-primary-hover-bg: var(--primary-600);
+
+  --button-secondary-base-bg: var(--secondary-500);
+  --button-secondary-base-text: var(--white);
+  --button-secondary-hover-bg: var(--secondary-600);
+
+  --button-outline-base-border: var(--neutral-300);
+  --button-outline-base-text: var(--neutral-700);
+  --button-outline-hover-bg: var(--neutral-50);
+
+  /* Old root variables, kept for reference during transition if needed, can be removed later */
+  --background: #ffffff; /* Superseded by --background-primary */
+  --foreground: #000000; /* Superseded by --text-primary */
+  --primary: #0088cc;    /* Superseded by --primary-600 or specific button vars */
+  --secondary: #8065ff;  /* Superseded by --secondary-500 or specific button vars */
+  --neutral: #333333;    /* Superseded by various --neutral-shades */
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
+  /* Base Palette Variables (Dark Theme) */
+  /* White and Black remain the same, differences are in how neutral shades are used */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Primary shades adjusted for dark mode, e.g. -400 becomes the main, -500 for hover */
+  --primary-50: #002233; /* Darkest for subtle bg */
+  --primary-100: #004466;
+  --primary-200: #006699;
+  --primary-300: #0088cc;
+  --primary-400: #00aaff; /* Main button bg (original 500) */
+  --primary-500: #33bbff; /* Hover (original 400) - Lighter for hover on dark */
+  --primary-600: #66ccff;
+  --primary-700: #99ddff;
+  --primary-800: #cceeff;
+  --primary-900: #e6f6ff; /* Lightest for highlights */
+
+  /* Secondary shades adjusted for dark mode */
+  --secondary-50: #1a1433;
+  --secondary-100: #332866;
+  --secondary-200: #4d3c99;
+  --secondary-300: #6651cc;
+  --secondary-400: #8065ff; /* Main button bg (original 500) */
+  --secondary-500: #9984ff; /* Hover (original 400) - Lighter for hover on dark */
+  --secondary-600: #b3a2ff;
+  --secondary-700: #ccc1ff;
+  --secondary-800: #e6e0ff;
+  --secondary-900: #f2f0ff;
+
+  /* Neutral shades inverted for dark mode */
+  --neutral-50: #1a1a1a;  /* Darkest, e.g., page background */
+  --neutral-100: #383838; /* Slightly lighter */
+  --neutral-200: #434343;
+  --neutral-300: #515151;
+  --neutral-400: #666666;
+  --neutral-500: #818181; /* Mid-gray */
+  --neutral-600: #a4a4a4;
+  --neutral-700: #c8c8c8;
+  --neutral-800: #e3e3e3; /* Lighter text */
+  --neutral-900: #f7f7f7;  /* Lightest, e.g., primary text */
+
+
+  /* Semantic Color Variables (Dark Theme) */
+  --background-primary: var(--neutral-100); /* Was neutral-900 from original tailwind dark, now a bit lighter */
+  --background-secondary: var(--neutral-200);
+  --background-tertiary: var(--neutral-300);
+
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-700);
+  --text-tertiary: var(--neutral-500);
+
+  --border-primary: var(--neutral-300);
+  --border-secondary: var(--neutral-400);
+
+  --button-primary-base-bg: var(--primary-400);
+  --button-primary-base-text: var(--black); /* Text on primary buttons in dark mode */
+  --button-primary-hover-bg: var(--primary-500);
+
+  --button-secondary-base-bg: var(--secondary-400);
+  --button-secondary-base-text: var(--black); /* Text on secondary buttons in dark mode */
+  --button-secondary-hover-bg: var(--secondary-500);
+
+  --button-outline-base-border: var(--neutral-400);
+  --button-outline-base-text: var(--neutral-700);
+  --button-outline-hover-bg: var(--neutral-200);
+
+  /* Old .dark variables, kept for reference */
+  --background: #0a0a0a; /* Superseded by --background-primary */
+  --foreground: #ffffff; /* Superseded by --text-primary */
 }
 
 @layer theme {
   * {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
+    --color-background: var(--background-primary); /* Updated */
+    --color-foreground: var(--text-primary);   /* Updated */
     --font-sans: var(--font-inter);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--background-primary);
+  color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   font-weight: 500;
 }

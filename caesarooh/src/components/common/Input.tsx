@@ -87,29 +87,31 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     
     // Base input styles
     const baseInputStyles = `
-      block w-full rounded-md border bg-white text-gray-900 shadow-sm 
-      focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary 
-      disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed
-      dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:focus:ring-primary-light
-      dark:disabled:bg-gray-900 dark:disabled:text-gray-600
+      block w-full rounded-md shadow-sm focus:outline-none
+      bg-background-secondary placeholder-text-tertiary
+      ${error 
+        ? 'text-red-900 border-red-500 focus:ring-red-500 focus:border-red-500 placeholder-red-700' 
+        // For red colors, direct Tailwind classes are used as 'red' palette is not yet mapped to CSS variables.
+        // Dark mode for red colors will be handled by Tailwind if/when the 'red' palette uses CSS variables.
+        : 'text-text-primary border-border-secondary focus:ring-primary-500 focus:border-primary-500'}
+      disabled:bg-background-tertiary disabled:text-text-tertiary disabled:cursor-not-allowed
       ${sizeStyles[size]}
       ${startIcon ? 'pl-9' : ''} 
       ${endIcon ? 'pr-9' : ''}
-      ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-500 dark:border-red-500 dark:focus:ring-red-500' : 'border-gray-300'}
       ${inputClassName}
     `;
     
     // Container classes
     const containerStyles = `mb-4 ${containerClassName}`;
     
-    // Label classes
-    const labelStyles = `block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 ${labelClassName}`;
+    // Label classes (maps to text-text-secondary)
+    const labelStyles = `block text-sm font-medium text-text-secondary mb-1 ${labelClassName}`;
     
-    // Error message classes
-    const errorStyles = 'mt-1 text-xs text-red-500 dark:text-red-400';
+    // Error message classes (using text-red-500, dark mode would need red palette mapped to CSS vars)
+    const errorStyles = 'mt-1 text-xs text-red-500';
     
-    // Hint text classes
-    const hintStyles = 'mt-1 text-xs text-gray-500 dark:text-gray-400';
+    // Hint text classes (maps to text-text-tertiary)
+    const hintStyles = 'mt-1 text-xs text-text-tertiary';
     
     return (
       <div className={containerStyles}>
